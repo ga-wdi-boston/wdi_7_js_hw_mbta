@@ -19,12 +19,16 @@ var lines = {
   'orange': ["north station", "haymarket/orange", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
 };
 
+var station_index = function(line, station) {
+	return parseInt(lines[line].indexOf(station));
+}
+
 
 var distance = function(start_line, start_station, end_line, end_station) {
-	var first_station = parseInt(lines[start_line].indexOf(start_station)),
-			start_line_park_index = parseInt(lines[start_line].indexOf("park st")),
-			last_station = parseInt(lines[end_line].indexOf(end_station)),
-			end_line_park_index = parseInt(lines[end_line].indexOf("park st")),
+	var first_station = station_index(start_line,start_station),
+			start_line_park_index = station_index(start_line, "park st"),
+			last_station = station_index(end_line,end_station),
+			end_line_park_index = station_index(end_line, "park st"),
 			start_to_park = (first_station - start_line_park_index),
 			end_to_park = (last_station - end_line_park_index);
 	return (Math.abs(start_to_park) + Math.abs(end_to_park));
