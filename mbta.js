@@ -2,7 +2,10 @@
 var startingLine,
 startingStation,
 endingLine,
-endingStation;
+endingStation,
+lines,
+station_index,
+distance;
 
 startingLine = prompt("Enter the Starting Line: ");
 startingStation = prompt("Enter the Starting Station");
@@ -13,18 +16,18 @@ alert("Staring at " + startingLine + " : " + startingStation);
 alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
-var lines = {
+lines = {
   'green':["haymarket/green", "government center", "park st", "boylston", "arlington", "copley"],
   'red': ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
   'orange': ["north station", "haymarket/orange", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
 };
 
-var station_index = function(line, station) {
+station_index = function(line, station) {
 	return parseInt(lines[line].indexOf(station));
 }
 
 
-var distance = function(start_line, start_station, end_line, end_station) {
+distance = function(start_line, start_station, end_line, end_station) {
 	var first_station = station_index(start_line,start_station),
 			start_line_park_index = station_index(start_line, "park st"),
 			last_station = station_index(end_line,end_station),
