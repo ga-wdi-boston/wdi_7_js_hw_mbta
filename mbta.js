@@ -24,5 +24,5 @@ var mbta = {
 alert("Staring at " + mbta.start_line + " : " + mbta.start_stop);
 alert("Ending at " + mbta.end_line + " : " + mbta.end_stop);
 
-result = mbta.calc_stops(mbta.start_line.toLowerCase(), mbta.start_stop.toLowerCase(), mbta.end_line.toLowerCase(), mbta.end_stop.toLowerCase());
+var result = mbta.calc_stops(mbta.start_line.toLowerCase(), mbta.start_stop.toLowerCase(), mbta.end_line.toLowerCase(), mbta.end_stop.toLowerCase());
 console.log("It will take you " + result + " stops for this trip.");
