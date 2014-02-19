@@ -13,9 +13,9 @@ alert("Staring at " + startingLine + " : " + startingStation);
 alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
-lines = {
-  'green':[],
-  'red': [],
-  'orange': []
+var lines = {
+  'green': ["haymarket", "government center", "park street", "bolyston", "arlington", "copley"],
+  'red': ["south station", "park street", "kendall", "central", "harvard", "porter", "davis", "alewife"],
+  'orange': ["north station", "haymarket", "park street", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
 };
 
