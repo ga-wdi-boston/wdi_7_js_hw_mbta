@@ -14,7 +14,7 @@
 // alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
-lines = {
+ var lines = {
   'Green':  ["Haymarket",
              "Government Center",
              "Park Street",
@@ -45,6 +45,7 @@ function Trip(startLine, startStation, endLine, endStation) {
 }
 
 Trip.prototype = {
+  // takes a single place (so trip.from or trip.to)
   distanceToPark: function(place) {
     var not_park = lines[place.line].indexOf(place.station),
         park = lines[place.line].indexOf("Park Street"),
@@ -63,7 +64,7 @@ Trip.prototype = {
   }
 };
 
-// Text formatting for display of stops
+// Text formatting for trip display
 var reportStops = function(trip) {
   var showTrip = document.getElementById("show-trip");
   showTrip.innerHTML = trip.displayStop(trip.from) + " to " + trip.displayStop(trip.to) +
@@ -74,7 +75,7 @@ var reportStops = function(trip) {
 var makeSel = function(form, line) {
   var line_length = lines[line.value].length,
       opt;
-  form.innerHTML = "";
+  form.innerHTML = ""; // Drop the current options when user changes line
   for(var i = 0; i < line_length; i++) {
     opt = document.createElement("option");
     opt.innerHTML = lines[line.value][i];
@@ -88,16 +89,19 @@ var formToTrip = function() {
   var toLine,
       fromLine,
       newTrip;
+  // look through the radio buttons for to or from to see which is checked
   var getLine = function(line_direction) {
     var radio = document.getElementsByName(line_direction);
     for (var i = 0; i < radio.length; i++) {
-      if (radio[i].checked) return radio[i].value;
+      if (radio[i].checked) {
+        return radio[i].value;
+      }
     }
   };
   toLine = getLine("toline");
   fromLine = getLine("fromline");
 
-  var newTrip = new Trip(
+  newTrip = new Trip(
     toLine,
     document.getElementById("tostation").value,
     fromLine,
