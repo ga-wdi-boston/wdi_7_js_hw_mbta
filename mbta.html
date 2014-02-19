@@ -1,8 +1,50 @@
 <html>
   <head>
-    <script src='./mbta.js'></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
   </head>
   <body>
-    <h3>Javascript Find Shortest MBTA Route Lab</h3>
+    <div class="container">
+      <h3>MBTA Stop Calculator for a Fictional Boston</h3>
+      <div class="col-md-5">
+        <p class="form-control-static">FROM:</p>
+        <label class="radio-inline control-label">
+          <input type="radio" name="toline" value="Red" onclick="makeSel(tostation, this)">
+          Red
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="toline" value="Green" onclick="makeSel(tostation, this)">
+          Green
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="toline" value="Orange" onclick="makeSel(tostation, this)">
+          Orange
+        </label>
+      <select id="tostation"></select>
+      </div>
+      <div class="col-md-5">
+        <p class="form-control-static">TO:</p>
+        <label class="radio-inline">
+          <input type="radio" name="fromline" value="Red" onclick="makeSel(fromstation, this)">
+          Red
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="fromline" value="Green" onclick="makeSel(fromstation, this)">
+          Green
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="fromline" value="Orange" onclick="makeSel(fromstation, this)">
+          Orange
+        </label>
+        <select id="fromstation"></select>
+      </div>
+      <input type="button" name="button" value="Go!" onClick="getToThaChoppa()" class="btn btn-primary">
+      <div class="row">
+        <div class="col-md-5">
+          <div id="show-trip"></div>
+          </div>
+        </div>
+      </div>
   </body>
+  <script src='./mbta.js'></script>
 </html>
