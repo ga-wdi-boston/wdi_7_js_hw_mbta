@@ -23,8 +23,8 @@ lines = {
 };
 
 station_index = function(line, station) {
-	return parseInt(lines[line].indexOf(station));
-}
+	return parseInt((lines[line].indexOf(station)), 10);
+};
 
 
 distance = function(start_line, start_station, end_line, end_station) {
@@ -35,7 +35,7 @@ distance = function(start_line, start_station, end_line, end_station) {
 			start_to_park = (first_station - start_line_park_index),
 			end_to_park = (last_station - end_line_park_index);
 	return (Math.abs(start_to_park) + Math.abs(end_to_park));
-}
+};
 
 result = distance(startingLine, startingStation, endingLine, endingStation);
 console.log( "number of stops: " + result);
