@@ -6,6 +6,7 @@ endingStation,
 distanceToIntersection,
 index,
 startToIntersection,
+endToIntersection,
 totalDistance;
 
 startingLine = prompt("Enter the Starting Line: ");
@@ -22,14 +23,6 @@ lines = {
   'red': ['South Station', 'Park Street', 'Kendall', 'Central', 'Harvard', 'Porter', 'Davis', 'Alewife'],
   'orange': ['North Station', 'Haymarket', 'Park Street', 'State', 'Downtown Crossing', 'Chinatown', 'Back bay', 'Forest Hills']
 };
-
-// not much javascript
-// startDistance = Math.abs(lines[startingLine].indexOf(startingStation) - lines[startingLine].indexOf('Park Street'));
-// endDistance = Math.abs(lines[endingLine].indexOf(endingStation) - lines[endingLine].indexOf('Park Street'));
-// totalDistance = startDistance + endDistance;
-
-// some more javascript
-
 
 var distanceToIntersection = function(line, station) {
     var index = Math.abs(lines[line].indexOf(station) - lines[line].indexOf('Park Street'));
