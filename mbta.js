@@ -3,19 +3,20 @@ var startingLine,
 		startingStation,
 		endingLine,
 		endingStation,
-		lines;
+		lines,
+		numStops;
 
-// startingLine = prompt("Enter the Starting Line: ");
-// startingStation = prompt("Enter the Starting Station");
-// endingLine = prompt("Enter the Ending Line");
-// endingStation =  prompt("Enter the Ending Station");
+startingLine = prompt("Enter the Starting Line: ");
+startingStation = prompt("Enter the Starting Station");
+endingLine = prompt("Enter the Ending Line");
+endingStation =  prompt("Enter the Ending Station");
 startingLine = 'red';
-startingStation = 'alewife';
-endingLine = 'green';
-endingStation = 'haymarket';
+// startingStation = 'alewife';
+// endingLine = 'green';
+// endingStation = 'haymarket';
 
-// alert("Staring at " + startingLine + " : " + startingStation);
-// alert("Ending at " + endingLine + " : " + endingStation);
+alert("Staring at " + startingLine + " : " + startingStation);
+alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
  lines = {
@@ -35,9 +36,6 @@ var enter_exit_same_line = function(line, startingStation, endingStation) {
 	abs_stop = Math.abs(switch_one - switch_two);
 	return abs_stop;
 }
-
-
-
 
 
 var enter_exit_different_lines = function(lines, startingLine, startingStation, endingLine, endingStation) {
@@ -61,8 +59,6 @@ var enter_exit_different_lines = function(lines, startingLine, startingStation, 
 		return (line1_stops + line2_stops);
 }
 
-
-var numStops;
 
 if(startingLine === endingLine) {
 	numStops = enter_exit_same_line(line, startingStation, endingStation);
