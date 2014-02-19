@@ -28,4 +28,4 @@ var start_index = parseInt(lines[startingLine].indexOf(startingStation)),
 		end_park_index = ((end_index - intersection_end_index) - 1),
 		total_distance = (Math.abs(start_park_index) + Math.abs(end_park_index));
 
-console.log("This distance is: " + total_distance);
+console.log("This distance is: " + total_distance + " stops.");
