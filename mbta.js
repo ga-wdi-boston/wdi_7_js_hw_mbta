@@ -22,10 +22,10 @@ lines = {
 
 var start_index = parseInt(lines[startingLine].indexOf(startingStation)),
 		intersection_start_index = parseInt(lines[startingLine].indexOf('Park St')),
-		start_park_index = ((start_index - intersection_start_index) - 1),
+		start_park_index = (start_index - intersection_start_index),
 		end_index = parseInt(lines[endingLine].indexOf(endingStation)),
 		intersection_end_index = parseInt(lines[endingLine].indexOf('Park St')),
-		end_park_index = ((end_index - intersection_end_index) - 1),
+		end_park_index = (end_index - intersection_end_index),
 		total_distance = (Math.abs(start_park_index) + Math.abs(end_park_index));
 
 console.log("This distance is: " + total_distance + " stops.");
