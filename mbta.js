@@ -5,8 +5,7 @@ startingLine,
 startingStation,
 endingLine,
 endingStation,
-stopsOn1,
-stopsOn2;
+tripInfo;
 
 // Create a array for each line
 lines = {
@@ -27,16 +26,14 @@ endingStation =  prompt("Enter the Ending Station");
 var totalStops = function(startingLine, startingStation, endingLine, endingStation){
 	var stopsOn1 = Math.abs(lines[startingLine].indexOf(transferStation) - lines[startingLine].indexOf(startingStation));
 	var stopsOn2 = Math.abs(lines[endingLine].indexOf(transferStation) - lines[endingLine].indexOf(endingStation));
-	if(startingLine === endingLine) {
-		return stopsOn1;
-	} else {
-		return stopsOn1 + stopsOn2;
-	}
+		return {stopsOn1: stopsOn1, stopsOn2: stopsOn2}
 }
 
-alert('Your total number of stops is: ' + totalStops(startingLine, startingStation, endingLine, endingStation));
-alert('Take the ' + startingLine + ' line for ' + stopsOn1 + ' stop(s).');
+tripInfo = totalStops(startingLine, startingStation, endingLine, endingStation);
+
+alert('Your total number of stops is: ' + (tripInfo.stopsOn1 + tripInfo.stopsOn2));
+alert('Take the ' + startingLine + ' line for ' + tripInfo.stopsOn1 + ' stop(s).');
 if(startingLine !== endingLine) {
-	alert('Then take the ' + endingLine + ' line for ' + stopsOn2 + ' stop(s).');
+	alert('Then transfer at ' + transferStation + ' and take the ' + endingLine + ' line for ' + tripInfo.stopsOn2 + ' stop(s).');
 }
 
