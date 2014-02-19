@@ -40,7 +40,7 @@ var end_park = findIndex(lines, endingLine, intersection);
 // Compute total stops
 var stops = 0;
 if (startingLine === endingLine) {
-	stops = (start_index - end_index);
+	stops = Math.abs(start_index - end_index);
 } else {
 	stops += Math.abs((start_index - start_park));
 	stops += Math.abs((end_index - end_park));
