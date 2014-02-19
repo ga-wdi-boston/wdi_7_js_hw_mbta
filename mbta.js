@@ -1,4 +1,7 @@
 // Code here.
+
+(function() {
+
 var lines,
 transferStation,
 startingLine,
@@ -36,4 +39,6 @@ alert('Take the ' + startingLine + ' line for ' + tripInfo.stopsOn1 + ' stop(s).
 if(startingLine !== endingLine) {
 	alert('Then transfer at ' + transferStation + ' and take the ' + endingLine + ' line for ' + tripInfo.stopsOn2 + ' stop(s).');
 }
+
+})();
 
