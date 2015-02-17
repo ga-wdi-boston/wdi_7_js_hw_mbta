@@ -36,4 +36,8 @@ var calcStops = function(originLine, origin, destinationLine, destination) {
 
 alert("Starting at " + startingLine + " : " + startingStation + ", ending at " + endingLine + " : " + endingStation + ": " + calcStops(startingLine, startingStation, endingLine, endingStation));
 
+// console.log(calcStops("green", "Haymarket", "orange", "Tufts"));
+// console.log(calcStops("green", "Haymarket", "orange", "North Station"));
+// console.log(calcStops("green", "Copley", "orange", "North Station"));
+// console.log(calcStops("green", "Copley", "orange", "Tufts"));
 
