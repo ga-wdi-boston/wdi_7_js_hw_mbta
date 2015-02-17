@@ -36,14 +36,14 @@ var Mbta = function(orig_line, orig_stop, dest_line, dest_stop){
     diffLineCount: function(line_start, start, line_stop, stop){ if(start == stop){
           return 0;
         }else{
-          count1 = this.sameLineCount(line_start, start, "Park Street");
-          count2 = this.sameLineCount(line_stop, stop, "Park Street");
+          var count1 = this.sameLineCount(line_start, start, "Park Street");
+          var count2 = this.sameLineCount(line_stop, stop, "Park Street");
           return count1 + count2;
         }
       },
     sameLineCount: function(line_name, stop1, stop2) {
       debugger;
-      count = this.lines[line_name].indexOf(stop1) - this.lines[line_name].indexOf(stop2);
+      var count = this.lines[line_name].indexOf(stop1) - this.lines[line_name].indexOf(stop2);
       if(count < 0){
         return count *= -1;
       }else{
