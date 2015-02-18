@@ -7,28 +7,32 @@ lines = {
   },
 
   userInputs = function(){
-    startingLine = prompt("Enter the Starting Line: ");
-    endingLine = prompt("Enter the Ending Line");
-    startingStation = prompt("Enter the Starting Station");
-    endingStation =  prompt("Enter the Ending Station");
+    this.startingLine = prompt("Enter the Starting Line: ");
+    this.endingLine = prompt("Enter the Ending Line");
+    this.startingStation = prompt("Enter the Starting Station");
+    this.endingStation =  prompt("Enter the Ending Station");
   },
 
   // distance = mbta[origin_line].index(origin_stop) - mbta[destination_line].index(destination_stop)
   // distance = distance.abs
 
   distanceToParkSt = function(line){
-      var startingLine = this.lines[line],
-      parkSt = startingLine.indexOf("Park Street");
+      var currentLine = this.lines[line],
+      parkSt = currentLine.indexOf("Park Street");
       return function(endingStation){
+        var currentStation = currentLine.indexOf(endingStation);
+        return Math.abs(currentStation - ParkSt);
+      }
+  },
 
+  distanceToStation = function(){
+    this.startParkSt = this.distanceToParkSt(this.startingLine);
+    this.endParkSt = this.distanceToParkSt(this.endingLine);
+    this.firstStop = this.startParkSt(this.startingStation);
+    this.endingStop = this.endParkSt(this.endingStation);
+    return this.firstStop + this.endingStop;
   }
-
-  startingStation,
-  endingLine,
-  endingStation;
-
-
-alert("Staring at " + startingLine + " : " + startingStation);
-alert("Ending at " + endingLine + " : " + endingStation);
-
 };
+
+// alert("Staring at " + startingLine + " : " + startingStation);
+// alert("Ending at " + endingLine + " : " + endingStation);
