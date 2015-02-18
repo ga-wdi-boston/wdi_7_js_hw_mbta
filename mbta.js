@@ -5,14 +5,12 @@ var MBTA = {
     "red": ["Alewife","Davis","Porter","Harvard","Central","Kendall/MIT","Charles/MGH","Park Street","Downtown Crossing","South Station"],
     "orange": ["Oak Grove", "Malden Center", "Wellington", "Assembly","Sullivan Square", "Community College", "North Station","Haymarket","Park Street","State","Downtown Crossing"]
     },
-
-    userInputs: function(){
-      this.startingLine = prompt("Enter the Starting Line: ");
-      this.endingLine = prompt("Enter the Ending Line");
-      this.startingStation = prompt("Enter the Starting Station");
-      this.endingStation =  prompt("Enter the Ending Station");
+    userInputs: {
+      startingLine: prompt("Enter the Starting Line: "),
+      endingLine: prompt("Enter the Ending Line"),
+      startingStation: prompt("Enter the Starting Station"),
+      endingStation: prompt("Enter the Ending Station"),
     },
-
     distance: function(){
       if(this.startingLine === this.endingLine){
         return Math.abs(this.lines[this.startingLine].indexOf(startingStation) - this.lines[this.endingLine].indexOf(this.endingStation));
@@ -24,5 +22,5 @@ var MBTA = {
   };
 
 
-MBTA.userInputs();
+// MBTA.userInputs();
 alert("The total number of stops for your travel is " + MBTA.distance() + " stops.");
