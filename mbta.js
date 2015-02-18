@@ -1,26 +1,25 @@
 var MBTA = {
 
   lines: {
-    "green": ["North Station","Haymarket","Government Center","Park Street","Boylston","Arlington","Copley","Hynes Convention Center", "Kenmore"],
-    "red": ["Alewife","Davis","Porter","Harvard","Central","Kendall/MIT","Charles/MGH","Park Street","Downtown Crossing","South Station"],
-    "orange": ["Oak Grove", "Malden Center", "Wellington", "Assembly","Sullivan Square", "Community College", "North Station","Haymarket","Park Street","State","Downtown Crossing"]
+    "Green": ["North Station","Haymarket","Government Center","Park Street","Boylston","Arlington","Copley","Hynes Convention Center", "Kenmore"],
+    "Red": ["Alewife","Davis","Porter","Harvard","Central","Kendall/MIT","Charles/MGH","Park Street","Downtown Crossing","South Station"],
+    "Orange": ["Oak Grove", "Malden Center", "Wellington", "Assembly","Sullivan Square", "Community College", "North Station","Haymarket","Park Street","State","Downtown Crossing"]
     },
-    userInputs: {
-      startingLine: prompt("Enter the Starting Line: "),
-      endingLine: prompt("Enter the Ending Line"),
-      startingStation: prompt("Enter the Starting Station"),
-      endingStation: prompt("Enter the Ending Station"),
+    userInputs: function() {
+      this.startingLine = prompt("Enter the Starting Line: ");
+      this.endingLine = prompt("Enter the Ending Line");
+      this.startingStation = prompt("Enter the Starting Station");
+      this.endingStation = prompt("Enter the Ending Station");
     },
     distance: function(){
       if(this.startingLine === this.endingLine){
-        return Math.abs(this.lines[this.startingLine].indexOf(startingStation) - this.lines[this.endingLine].indexOf(this.endingStation));
+        return Math.abs(this.lines[this.startingLine].indexOf(this.startingStation) - this.lines[this.endingLine].indexOf(this.endingStation));
       } else {
-        return Math.abs(this.lines[this.startingLine].indexOf(startingStation) - this.lines[this.startingLine].indexOf(this.lines["Park Street"]) + Math.abs(this.lines[this.endingLine].indexOf("Park Street") - this.lines[this.endingLine].indexOf(endingStation)));
+        return Math.abs(lines[this.startingLine].indexOf(startingStation) - lines[this.startingLine].indexOf(lines["Park Street"]) + Math.abs(lines[this.endingLine].indexOf("Park Street") - lines[this.endingLine].indexOf(this.endingStation)));
       }
-
     }
   };
 
 
-// MBTA.userInputs();
+MBTA.userInputs();
 alert("The total number of stops for your travel is " + MBTA.distance() + " stops.");
