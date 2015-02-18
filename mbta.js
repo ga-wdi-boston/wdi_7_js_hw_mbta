@@ -8,34 +8,29 @@ var MBTA = {
 
     userInputs: function(){
       this.startingLine = prompt("Enter the Starting Line: ");
-      this.startingStation = prompt("Enter the Starting Station");
       this.endingLine = prompt("Enter the Ending Line");
+      this.startingStation = prompt("Enter the Starting Station");
       this.endingStation =  prompt("Enter the Ending Station");
     },
 
     // distance = mbta[origin_line].index(origin_stop) - mbta[destination_line].index(destination_stop)
     // distance = distance.abs
 
-  distanceToPark: function(line) {
-    var currentLine = this.lines[line],
-    parkSt = currentLine.indexOf("park street");
-    return function(station) {
-      var currentStop = currentLine.indexOf(station);
-      return Math.abs(currentStop - parkSt);
-    }
-  },
+    // distance = (mbta[origin_line].index(origin_stop) - mbta[origin_line].index('Park Street')).abs + (mbta[destination_line].index(destination_stop) - mbta[destination_line].index('Park Street')).abs
 
-    distanceToStation: function(){
-      this.startPark = this.distanceToPark(this.startingLine);
-      this.endPark = this.distanceToPark(this.endingLine);
-      this.firstStop = this.startPark(this.startingStation);
-      this.endingStop = this.endPark(this.endingStation);
-      return this.firstStop + this.endingStop;
+    distance: function(startingLine, startingStation, endingLine, endingStation){
+      if(this.startingLine === this.endingLine){
+        return Math.abs(this.lines[this.startingLine].indexOf(startingStation) - this.lines[this.endingLine].indexOf(this.endingStation));
+      } else {
+        return Math.abs(this.lines[this.startingLine].indexOf(this.startingStation) - this.lines[this.startingLine].indexOf(this.lines["Park Street"]) + Math.abs(this.lines[this.endingLine].indexOf("Park Street") - this.lines[this.endingLine].indexOf(this.endingStation)));
+      }
+
     }
   };
 
+
 MBTA.userInputs();
-alert("The total number of stops for your travel is " + MBTA.distanceToStation() + " stops.");
+alert("The total number of stops for your travel is " + MBTA.distance() + " stops.");
 
 
 // alert("Staring at " + startingLine + " : " + startingStation);
