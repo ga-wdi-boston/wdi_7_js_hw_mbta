@@ -13,16 +13,10 @@ var MBTA = {
       this.endingStation =  prompt("Enter the Ending Station");
     },
 
-    // distance = mbta[origin_line].index(origin_stop) - mbta[destination_line].index(destination_stop)
-    // distance = distance.abs
-
-    // distance = (mbta[origin_line].index(origin_stop) - mbta[origin_line].index('Park Street')).abs + (mbta[destination_line].index(destination_stop) - mbta[destination_line].index('Park Street')).abs
-
-    distance: function(startingLine, startingStation, endingLine, endingStation){
+    distance: function(){
       if(this.startingLine === this.endingLine){
         return Math.abs(this.lines[this.startingLine].indexOf(startingStation) - this.lines[this.endingLine].indexOf(this.endingStation));
       } else {
-
         return Math.abs(this.lines[this.startingLine].indexOf(startingStation) - this.lines[this.startingLine].indexOf(this.lines["Park Street"]) + Math.abs(this.lines[this.endingLine].indexOf("Park Street") - this.lines[this.endingLine].indexOf(endingStation)));
       }
 
@@ -32,7 +26,3 @@ var MBTA = {
 
 MBTA.userInputs();
 alert("The total number of stops for your travel is " + MBTA.distance() + " stops.");
-
-
-// alert("Staring at " + startingLine + " : " + startingStation);
-// alert("Ending at " + endingLine + " : " + endingStation);
