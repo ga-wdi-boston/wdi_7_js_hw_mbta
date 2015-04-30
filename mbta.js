@@ -1,9 +1,9 @@
 // Code here.
 
-var startingLine,
-startingStation,
-endingLine,
-endingStation;
+var startingLine = "red"
+startingStation = 'alewife',
+endingLine = "red",
+endingStation = 'south station';
 
 // startingLine = prompt("Enter the Starting Line: ");
 // startingStation = prompt("Enter the Starting Station");
@@ -56,10 +56,9 @@ var trip = function () {
         }
     }
 
-    return Math.abs(x - y);
+    return Math.abs(start - finish);
 }
 
-trip();
 
 // function destination(startingLine, startingStation) {
 //     var x = startingLine.indexOf(startingStation);
