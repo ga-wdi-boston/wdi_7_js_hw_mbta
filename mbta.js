@@ -50,17 +50,11 @@ var trip = function () {
         }
     }
 
-    for (var k = 0; k < startingLine.length; k++) {
-        if (startingStation === startingLine[k]) {
+    for (var k = 0; k < endingLine.length; k++) {
+        if (endingStation === endingLine[k]) {
             y = endingLine.indexOf(endingStation);
         }
     }
 
     return Math.abs(start - finish);
 }
-
-
-// function destination(startingLine, startingStation) {
-//     var x = startingLine.indexOf(startingStation);
-//     lines.startingLine
-// }
