@@ -3,7 +3,7 @@ var startingLine,
 startingStation,
 endingLine,
 endingStation;
-/*
+
 startingLine = prompt("Enter the Starting Line: ");
 console.log(startingLine);
 startingStation = prompt("Enter the Starting Station");
@@ -15,7 +15,7 @@ console.log(endingStation);
 
 alert("Staring at " + startingLine + " : " + startingStation);
 alert("Ending at " + endingLine + " : " + endingStation);
-*/
+
 // Create a array for each line
 lines = {
   'green':{'haymarket':-2, 'government center':-1, 'park st':0, 'bolyston':1, 'arlington':2, 'copley':3},
@@ -24,15 +24,12 @@ lines = {
 };
 
 
-function tester(startingLine,startingStation,endingLine,endingStation){
-  if (startingLine!==endingLine){
-    lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
-  }
-  console.log(Math.abs(lines[startingLine][startingStation] - lines[endingLine][  endingStation]));
-}
 
-tester('red','alewife','green','haymarket');
-tester('red','alewife','red','south station');
-tester('red','alewife','green','copley');
-tester('red','alewife','red','park st');
-tester('red','alewife','orange','north station');
+if (startingLine!==endingLine){
+  lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
+}
+result = Math.abs(lines[startingLine][startingStation] - lines[endingLine][  endingStation])
+  alert("It will take this many stops: " + result);
+  console.log(result);
+
+
