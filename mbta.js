@@ -1,6 +1,6 @@
 // Code here.
-var startingLine = "Green",
-startingStation = "Copley",
+var startingLine = "Red",
+startingStation = "Central",
 endingLine = "Orange",
 endingStation = "Forest Hills";
 
@@ -12,34 +12,43 @@ endingStation = "Forest Hills";
 // alert("Staring at " + startingLine + " : " + startingStation);
 // alert("Ending at " + endingLine + " : " + endingStation);
 
-// Create a array for each line
-var lines = {
-  'Green':["Haymarket", "Government Center", "Park", "Boylston", "Arlington", "Copley"],
-  'Red': ["South Station", "Park", "Kendall", "Central", "Harvard", "Porter", "Davis", "Alewife"],
-  'Orange': ["North Station", "Haymarket", "Park", "State", "Downtown Crossing", "Chinatown", "Back Bay", "Forest Hills"]
-};
-
-var startIndex = lines[startingLine].indexOf(startingStation);
-var endIndex = lines[endingLine].indexOf(endingStation);
-var toPark = Math.abs(lines[startingLine].indexOf(startingStation) - lines[startingLine].indexOf("Park"));
-var fromPark = Math.abs(lines[endingLine].indexOf(endingStation) - lines[endingLine].indexOf("Park"));
-
-var sameLine = function(p1, p2) {return Math.abs(startIndex - endIndex);}
 
 
 
-var diffLine = function(p1, p2) {return Math.abs(toPark + fromPark);}
+function getStops(startningLine, startingStation, endingLine, endingStation){
+  // Create a array for each line
+  var lines = {
+    'Green':["Haymarket", "Government Center", "Park", "Boylston", "Arlington", "Copley"],
+    'Red': ["South Station", "Park", "Kendall", "Central", "Harvard", "Porter", "Davis", "Alewife"],
+    'Orange': ["North Station", "Haymarket", "Park", "State", "Downtown Crossing", "Chinatown", "Back Bay", "Forest Hills"]
+  };
 
-function getTrain (p1, p2) {
-  if (startingLine === endingLine) {
-    return sameLine();{
+  var startIndex = lines[startingLine].indexOf(startingStation),
+  endIndex = lines[endingLine].indexOf(endingStation),
+  result;
 
-    } else {
-      return diffLine();
-    }
+  var toPark = Math.abs(lines[startingLine].indexOf(startingStation) - lines[startingLine].indexOf("Park"));
+
+  var fromPark = Math.abs(lines[endingLine].indexOf(endingStation) - lines[endingLine].indexOf("Park"));
+
+  function sameLine(p1, p2){
+    return Math.abs(startIndex - endIndex);
   }
 
-  console.log(getTrain());
+  function diffLine(p1, p2) {
+    return Math.abs(toPark + fromPark);
+  }
+
+  if(startingLine === endingLine){
+    result = sameLine(startIndex, endIndex);
+  }else{
+    result = diffLine(toPark,fromPark);
+  }
+
+  return result;
+}
+
+console.log(getStops(startingLine, startingStation, endingLine, endingStation));
 
 
 
