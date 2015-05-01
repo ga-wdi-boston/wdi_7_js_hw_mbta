@@ -2,8 +2,8 @@
 
 var startingLine = "red"
 startingStation = 'alewife',
-endingLine = "red",
-endingStation = 'south station';
+endingLine = "green",
+endingStation = 'haymarket';
 
 // startingLine = prompt("Enter the Starting Line: ");
 // startingStation = prompt("Enter the Starting Station");
@@ -43,18 +43,49 @@ else {
 var trip = function () {
     var start;
     var finish;
+    var count;
 
     for (var i = 0; i < startingLine.length; i++) {
         if (startingStation === startingLine[i]) {
-            x = startingLine.indexOf(startingStation);
+            start = startingLine.indexOf(startingStation);
+            break;
         }
     }
 
     for (var k = 0; k < endingLine.length; k++) {
         if (endingStation === endingLine[k]) {
-            y = endingLine.indexOf(endingStation);
+            finish = endingLine.indexOf(endingStation);
+            break;
         }
     }
+    if (startingLine === endingLine) {
+        count = Math.abs(start - finish);
+        return count;
+    }
+    else {
+        count = function () {
+            var split1;
+            var split2;
+            var total;
 
-    return Math.abs(start - finish);
-}
+            for (var i = 0; i < startingLine.length; i++) {
+                if (startingLine[i] === 'park st') {
+                    split1 = startingLine.indexOf(startingLine[i]);
+                    break;
+                }
+            }
+            for (var k = 0; k < endingLine.length; k++) {
+                if (endingLine[k] === 'park st') {
+                    split2 = endingLine.indexOf(endingLine[k]);
+                    break;
+                }
+            }
+            total = Math.abs(start - split1) + Math.abs(finish - split2);
+            return total;
+        };
+        return count();
+    }
+
+};
+
+trip();
