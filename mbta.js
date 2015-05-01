@@ -1,17 +1,17 @@
 // Code here.
 
-var startingLine = "red"
-startingStation = 'alewife',
-endingLine = "green",
-endingStation = 'haymarket';
+var startingLine = "red";
+var startingStation = "south station";
+var endingLine = "orange";
+var endingStation = "haymarket";
 
-// startingLine = prompt("Enter the Starting Line: ");
-// startingStation = prompt("Enter the Starting Station");
-// endingLine = prompt("Enter the Ending Line");
-// endingStation =  prompt("Enter the Ending Station");
+startingLine = prompt("Enter the Starting Line: ");
+startingStation = prompt("Enter the Starting Station");
+endingLine = prompt("Enter the Ending Line");
+endingStation =  prompt("Enter the Ending Station");
 
-// alert("Staring at " + startingLine + " : " + startingStation);
-// alert("Ending at " + endingLine + " : " + endingStation);
+alert("Staring at " + startingLine + " : " + startingStation);
+alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
 var lines = {
@@ -23,8 +23,8 @@ var lines = {
 if (startingLine === "red") {
     startingLine = lines.red;
 }
-else if (startingLine === "blue") {
-    startingLine = lines.blue;
+else if (startingLine === "orange") {
+    startingLine = lines.orange;
 }
 else {
     startingLine = lines.green;
@@ -33,8 +33,8 @@ else {
 if (endingLine === "red") {
     endingLine = lines.red;
 }
-else if (endingLine === "blue") {
-    endingLine = lines.blue;
+else if (endingLine === "orange") {
+    endingLine = lines.orange;
 }
 else {
     endingLine = lines.green;
@@ -60,7 +60,7 @@ var trip = function () {
     }
     if (startingLine === endingLine) {
         count = Math.abs(start - finish);
-        return count;
+        return alert(count);
     }
     else {
         count = function () {
@@ -83,7 +83,7 @@ var trip = function () {
             total = Math.abs(start - split1) + Math.abs(finish - split2);
             return total;
         };
-        return count();
+        return alert(count());
     }
 
 };
