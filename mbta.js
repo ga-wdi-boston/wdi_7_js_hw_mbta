@@ -30,6 +30,7 @@ alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
 
+
 lines = {
   green:["haymarket", "government center", "park st", "bolyston", "arlington", "copley"],
   red: ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
@@ -39,17 +40,38 @@ lines = {
 //If on same line, get the index of the stops and subtract them. Their absolute value is the answer.
 //If on different lines, subtract the index of the stops from the index of park st and then subtract those numbers: their absolute value is the answer.
 
-function numStops(startingLine, startingStation, endingLine, endingStation){
-  console.log(lines);
-  console.log(lines[startingLine]);
-  console.log(lines[startingLine].indexOf("park st"))
-  if (startingLine === endingLine){
+// function numStops(startingLine, startingStation, endingLine, endingStation){
+// //   console.log(lines);
+// //   console.log(lines[startingLine]);
+// //   console.log(lines[startingLine].indexOf("park st"))
+//   if (startingLine === endingLine){
+//     var startIndex = lines[startingLine].indexOf(startingStation);
+//     var endIndex = lines[startingLine].indexOf(endingStation);
+//     return Math.abs(endIndex - startIndex);
+//   } else {
+//     var firstLegStartIndex = lines[startingLine].indexOf(startingStation);
+//     var firstLegEndIndex = lines[startingLine].indexOf("park st");
+//     var secondLegStartIndex = lines[endingLine].indexOf("park st");
+//     var secondLegEndIndex = lines[endingLine].indexOf(endingStation);
+//     return Math.abs(firstLegEndIndex - firstLegStartIndex) +
+//             Math.abs(secondLegEndIndex - secondLegStartIndex);
+//   }
+// };
 
-  }
-  else {
-  }
-};
 
- result = numStops(startingLine, startingStation, endingLine, endingStation);
+function numStops(startLine,startStation,endLine,endStation){
+    function countStops(whichLine, stationOne, stationTwo) {
+        var line = lines[whichLine];
+        return Math.abs(line.indexOf(stationOne) - line.indexOf(stationTwo));
+    }
+    if (startLine === endLine) {
+        return countStops(startLine,startStation,endStation);
+    } else {
+        return countStops(startLine,startStation,"park st") +
+                countStops(endLine,"park st",endStation)
+    }
+}
 
- console.log(result);
+var result = numStops();
+
+console.log(result);
