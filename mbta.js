@@ -13,39 +13,47 @@
 // alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
-
-  var green = ["haymarket", "government center", "park st", "bolyston", "arlington", "copley"]
-  var red = ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"]
-  var orange = ["north station", "haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
-
+var mbta = {
+  "green" : ["haymarket", "government center", "park st", "bolyston", "arlington", "copley"],
+  "red" : ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
+ "orange" : ["north station", "haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
+}
 // function that selects only number of stops you are travelling
 
-
-function countStations(startingStation, startingLine, endingStation, endingLine){
-  if (startingLine === endingLine){
-    console.log(Math.abs(startingLine.indexOf(startingStation) - startingLine.indexOf(endingStation)));
-  } else {
-    var firstRide = Math.abs(startingLine.indexOf(startingStation) - startingLine.indexOf("park st"))
-    var secondRide = Math.abs(endingLine.indexOf(endingStation) - endingLine.indexOf("park st"));
-    var totalRide = firstRide + secondRide;
-    console.log(totalRide);
-  }
-}
-
-countStations("haymarket", green, "harvard", red);
-
 function findStation(stop){
-  var Station = stop;
-  var Line;
-  if (green.indexOf(stop) >= 0){
-    Line = "green";
-  } else if (red.indexOf(stop) >= 0){
-    Line = "red";
+  var station = stop;
+  var line;
+  if (mbta.green.indexOf(stop) >= 0){
+    line = "green";
+  } else if (mbta.red.indexOf(stop) >= 0){
+    line = "red";
   } else {
-    Line = "orange";
+    line = "orange";
   }
-  var coordinate = [Station, Line];
-  console.log(coordinate);
+  var coordinate = {station : station,
+                    line : line};
+  return coordinate;
 }
 
-findStation("copley");
+var s = findStation("copley");
+var f = findStation("park st");
+
+console.log(s);
+console.log(f);
+
+function countStations(start, finish){
+  if (start.line === finish.line){
+    console.log(Math.abs(mbta[start.line].indexOf(start.station) - mbta[finish.line].indexOf(finish.station)));
+  } else {
+    var firstRide = Math.abs(start.line.indexOf(start.station) - start.line.indexOf("park st"));
+    var secondRide = Math.abs(finish.line.indexOf(finish.station) - finish.line.indexOf("park st"));
+    var totalCount = firstRide + secondRide;
+  }
+
+}
+
+countStations(s, f);
+
+
+
+
