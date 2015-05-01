@@ -22,12 +22,14 @@ lines = {
   'orange': {'north station':-2, 'haymarket':-1, 'park st':0, 'state':1, 'downtown crossing':2, 'chinatown':3, 'back bay':4, 'forest hills':5}
 };
 
-
-
-if (startingLine!==endingLine){
-  lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
+var results;
+function trip(startingLine,startingStation,endingLine,endingStation){
+  if (startingLine!==endingLine){
+    lines[startingLine][startingStation] = (Math.abs(lines[startingLine][startingStation]));
+    lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
+  }
+  results = (Math.abs(lines[startingLine][startingStation] - lines[endingLine][endingStation]));
 }
-result = Math.abs(lines[startingLine][startingStation] - lines[endingLine][  endingStation])
   alert("It will take this many stops: " + result);
   console.log(result);
 
