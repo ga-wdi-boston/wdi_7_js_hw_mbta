@@ -1,9 +1,9 @@
 // Code here.
 
-var startingLine = "red";
-var startingStation = "south station";
-var endingLine = "orange";
-var endingStation = "haymarket";
+var startingLine;
+var startingStation;
+var endingLine;
+var endingStation;
 
 startingLine = prompt("Enter the Starting Line: ");
 startingStation = prompt("Enter the Starting Station");
