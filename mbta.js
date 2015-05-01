@@ -59,19 +59,19 @@ lines = {
 // };
 
 
-function numStops(startLine,startStation,endLine,endStation){
+function numStops(startingLine,startingStation,endingLine,endingStation){
     function countStops(whichLine, stationOne, stationTwo) {
         var line = lines[whichLine];
         return Math.abs(line.indexOf(stationOne) - line.indexOf(stationTwo));
     }
     if (startLine === endLine) {
-        return countStops(startLine,startStation,endStation);
+        return countStops(startingLine,startingStation,endingStation);
     } else {
-        return countStops(startLine,startStation,"park st") +
-                countStops(endLine,"park st",endStation)
+        return countStops(startingLine,startingStation,"park st") +
+                countStops(endingLine,"park st",endingStation)
     }
 }
 
-var result = numStops();
+var result = numStops(startingLine,startingStation,endingLine,endingStation);
 
 console.log(result);
