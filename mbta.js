@@ -26,5 +26,8 @@ function trip(startingLine,startingStation,endingLine,endingStation){
     if (startingLine === endingLine){
        return  Math.abs(lines[startingLine].indexOf(startingStation) - lines[endingLine].indexOf(endingStation) );
     }
+    else {
+        return Math.abs(lines[startingLine].indexOf(startingStation)-lines[startingLine].indexOf("park st")) + Math.abs(lines[endingLine].indexOf(endingStation)-lines[endingLine].indexOf("park st"))-1
+    }
 }
 console.log(trip("red","southstation","red","central"));
