@@ -20,10 +20,7 @@ var mbta = {
 };
 
 function ourTrip(start_ln, start_st, dest_ln, dest_st){
-  console.log("start line " + start_ln);
-  console.log("start station " + start_st);
-  console.log("dest line " + dest_ln);
-  console.log("dest line " + dest_st);
+
 
   var distance;
 
