@@ -17,7 +17,7 @@ alert_str = 'Number of stops is: ';
 
 // Create a array for each line
 
-var myMBTA = function(){
+var trip = function(){
    var lines = {
       'green':['Haymarket', 'Government Center', 'Park St', 'Boylston', 'Arlington', 'Copley'],
       'red': ['South Station', 'Park St', 'Kendall', 'Central', 'Harvard', 'Porter', 'Davis', 'Alewife'],
