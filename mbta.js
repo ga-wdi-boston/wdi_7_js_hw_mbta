@@ -1,4 +1,4 @@
-// Code here.
+// Define our variables
 var startingLine,
 startingStation,
 endingLine,
@@ -11,14 +11,16 @@ lines = {
   'orange': {'north station':-2, 'haymarket':-1, 'park st':0, 'state':1, 'downtown crossing':2, 'chinatown':3, 'back bay':4, 'forest hills':5}
 };
 
-
+// This function subtracts finsih from start
+// Makes start positive and end negative if switching lines
 function trip(startingLine,startingStation,endingLine,endingStation){
   if (startingLine!==endingLine){
     lines[startingLine][startingStation] = (Math.abs(lines[startingLine][startingStation]));
     lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
   }
-  console.log(Math.abs(lines[startingLine][startingStation] - lines[endingLine][  endingStation]));
+  console.log(Math.abs(lines[startingLine][startingStation] - lines[endingLine][endingStation]));
 }
+
 
 trip('red','alewife','green','haymarket');
 trip('red','alewife','red','south station');
