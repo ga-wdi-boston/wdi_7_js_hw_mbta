@@ -1,8 +1,19 @@
-// Define our variables
+// Code here.
 var startingLine,
 startingStation,
 endingLine,
 endingStation;
+tartingLine = prompt("Enter the Starting Line: ");
+console.log(startingLine);
+startingStation = prompt("Enter the Starting Station");
+console.log(startingStation);
+endingLine = prompt("Enter the Ending Line");
+console.log(endingLine);
+endingStation =  prompt("Enter the Ending Station");
+console.log(endingStation);
+
+alert("Staring at " + startingLine + " : " + startingStation);
+alert("Ending at " + endingLine + " : " + endingStation);
 
 // Create a array for each line
 lines = {
@@ -11,21 +22,15 @@ lines = {
   'orange': {'north station':-2, 'haymarket':-1, 'park st':0, 'state':1, 'downtown crossing':2, 'chinatown':3, 'back bay':4, 'forest hills':5}
 };
 
-// This function subtracts finsih from start
-// Makes start positive and end negative if switching lines
+var results;
 function trip(startingLine,startingStation,endingLine,endingStation){
   if (startingLine!==endingLine){
     lines[startingLine][startingStation] = (Math.abs(lines[startingLine][startingStation]));
     lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
   }
-  console.log(Math.abs(lines[startingLine][startingStation] - lines[endingLine][endingStation]));
+  results = (Math.abs(lines[startingLine][startingStation] - lines[endingLine][endingStation]));
 }
+  alert("It will take this many stops: " + result);
+  console.log(result);
 
 
-trip('red','alewife','green','haymarket');
-trip('red','alewife','red','south station');
-trip('red','alewife','green','copley');
-trip('red','alewife','red','park st');
-trip('red','alewife','orange','north station');
-trip('green','haymarket','green','government center');
-trip('green','haymarket','orange','north station');
