@@ -30,22 +30,22 @@ var trip = function(){
       return lines[mbta_line].indexOf(value);
     }
     function calcSegment(stop_one, stop_two, line) {
-          return abs(getIndex(stop_one, line) - getIndex(stop_two, line));
+      return abs(getIndex(stop_one, line) - getIndex(stop_two, line));
     }
     function diffLineDistance(firstStop, lastStop, firstLine, lastLine){
       //Get distance to park st for both lines
-      firstSegment = calcSegment('Park St', firstStop, firstLine);
-      secondSegment = calcSegment('Park St', lastStop, lastLine);
-      return firstSegment + secondSegment;
+      return calcSegment('Park St', firstStop, firstLine) - calcSegment('Park St', lastStop, lastLine);
+    }
+    function alertBot(distance){
+      console.log(alert_str + distance);
+      alert(alert_str + distance);
     }
   return {
     countStops: function(startingLine, startingStation, endingLine, endingStation){
-        if (startingLine === endingLine){
-            console.log(alert_str + calcSegment(startingStation,endingStation,startingLine));
-            alert(alert_str + calcSegment(startingStation,endingStation,startingLine));
+      if (startingLine === endingLine){
+          alertBot(calcSegment(startingStation,endingStation,startingLine));
      } else {
-         console.log(alert_str + diffLineDistance(startingStation,endingStation, startingLine, endingLine));
-         alert(alert_str + diffLineDistance(startingStation,endingStation, startingLine, endingLine));
+         alertBot(diffLineDistance(startingStation,endingStation, startingLine, endingLine));
 
      }
     }
