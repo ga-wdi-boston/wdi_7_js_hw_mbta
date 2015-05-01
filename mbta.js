@@ -3,19 +3,7 @@ var startingLine,
 startingStation,
 endingLine,
 endingStation;
-/*
-startingLine = prompt("Enter the Starting Line: ");
-console.log(startingLine);
-startingStation = prompt("Enter the Starting Station");
-console.log(startingStation);
-endingLine = prompt("Enter the Ending Line");
-console.log(endingLine);
-endingStation =  prompt("Enter the Ending Station");
-console.log(endingStation);
 
-alert("Staring at " + startingLine + " : " + startingStation);
-alert("Ending at " + endingLine + " : " + endingStation);
-*/
 // Create a array for each line
 lines = {
   'green':{'haymarket':-2, 'government center':-1, 'park st':0, 'bolyston':1, 'arlington':2, 'copley':3},
@@ -24,15 +12,18 @@ lines = {
 };
 
 
-function tester(startingLine,startingStation,endingLine,endingStation){
+function trip(startingLine,startingStation,endingLine,endingStation){
   if (startingLine!==endingLine){
+    lines[startingLine][startingStation] = (Math.abs(lines[startingLine][startingStation]));
     lines[endingLine][endingStation] = -(Math.abs(lines[endingLine][endingStation]));
   }
   console.log(Math.abs(lines[startingLine][startingStation] - lines[endingLine][  endingStation]));
 }
 
-tester('red','alewife','green','haymarket');
-tester('red','alewife','red','south station');
-tester('red','alewife','green','copley');
-tester('red','alewife','red','park st');
-tester('red','alewife','orange','north station');
+trip('red','alewife','green','haymarket');
+trip('red','alewife','red','south station');
+trip('red','alewife','green','copley');
+trip('red','alewife','red','park st');
+trip('red','alewife','orange','north station');
+trip('green','haymarket','green','government center');
+trip('green','haymarket','orange','north station');

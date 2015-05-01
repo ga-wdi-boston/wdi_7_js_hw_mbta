@@ -3,8 +3,7 @@ var startingLine,
 startingStation,
 endingLine,
 endingStation;
-
-startingLine = prompt("Enter the Starting Line: ");
+tartingLine = prompt("Enter the Starting Line: ");
 console.log(startingLine);
 startingStation = prompt("Enter the Starting Station");
 console.log(startingStation);
