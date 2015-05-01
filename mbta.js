@@ -51,6 +51,6 @@ var trip = function(){
     }
   };
 };
-var boston = myMBTA();
+var boston = trip();
 boston.countStops(startingLine,startingStation,endingLine,endingStation);
 
