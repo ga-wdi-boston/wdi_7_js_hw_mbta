@@ -1,21 +1,28 @@
-// Code here.
-var startingLine,
-startingStation,
-endingLine,
-endingStation;
-
-startingLine = prompt("Enter the Starting Line: ");
-startingStation = prompt("Enter the Starting Station");
-endingLine = prompt("Enter the Ending Line");
-endingStation =  prompt("Enter the Ending Station");
-
-alert("Staring at " + startingLine + " : " + startingStation);
-alert("Ending at " + endingLine + " : " + endingStation);
-
-// Create a array for each line
-lines = {
-  'green':[],
-  'red': [],
-  'orange': []
+var MbtaApp = {
+	lines: {'green':["haymarket", "government center", "park st", "bolyston", "arlington", "copley"],
+	  			 'red': ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
+	  			 'orange': ["north station", "haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
+	  			},
+  tripCount : function(form){
+  	var startingLine = form.StartingLine.value,
+  		  startingStation = form.StartingStation.value,
+  		  endingLine = form.EndingLine.value,
+  		  endingStation = form.EndingStation.value,
+  		  countStop;
+  	if(startingLine === endingLine){
+			countStop = (Math.abs(this.lines[startingLine].indexOf(startingStation) - this.lines[endingLine].indexOf(endingStation)));
+		} else {
+			countStop = ((Math.abs(this.lines[startingLine].indexOf(startingStation) - this.lines[startingLine].indexOf("park st")) + Math.abs(this.lines[endingLine].indexOf(endingStation) - this.lines[endingLine].indexOf("park st"))));
+		}
+		alert("Total number of stops for the trips is " + countStop);
+	}
 };
+
+
+
+
+
+
+
+
 
